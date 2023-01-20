@@ -1,6 +1,6 @@
 package ru.job4j.dreamjob.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Candidate {
@@ -11,9 +11,9 @@ public class Candidate {
 
     private String description;
 
-    private Date creationDate;
+    private LocalDateTime creationDate;
 
-    public Candidate(int id, String name, String description, Date creationDate) {
+    public Candidate(int id, String name, String description, LocalDateTime creationDate) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -44,11 +44,11 @@ public class Candidate {
         this.description = description;
     }
 
-    public Date getCreationDate() {
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -61,15 +61,12 @@ public class Candidate {
             return false;
         }
         Candidate candidate = (Candidate) o;
-        return id == candidate.id
-                && Objects.equals(name, candidate.name)
-                && Objects.equals(description, candidate.description)
-                && Objects.equals(creationDate, candidate.creationDate);
+        return id == candidate.id;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, creationDate);
+        return Objects.hash(id);
     }
 }
 

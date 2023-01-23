@@ -11,7 +11,6 @@ import java.util.Optional;
 
 @Repository
 public class MemoryCandidateRepository implements CandidateRepository {
-    private static final MemoryCandidateRepository INSTANCE = new MemoryCandidateRepository();
 
     private int nexId = 1;
 
@@ -23,10 +22,6 @@ public class MemoryCandidateRepository implements CandidateRepository {
         save(new Candidate(0, "Ivan", "QA", LocalDateTime.now()));
         save(new Candidate(0, "Dmitriy", "PM", LocalDateTime.now()));
         save(new Candidate(0, "Denis", "Analytics", LocalDateTime.now()));
-    }
-
-    public static MemoryCandidateRepository getInstance() {
-        return INSTANCE;
     }
 
     @Override

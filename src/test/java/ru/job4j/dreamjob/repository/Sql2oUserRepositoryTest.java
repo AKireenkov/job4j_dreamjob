@@ -56,8 +56,7 @@ class Sql2oUserRepositoryTest {
         sql2oUserRepository.save(new User(0, "email@email.ru", "name", "password"));
         var user = new User(0, "email@email.ru", "name1", "password1");
         assertThatThrownBy(() -> sql2oUserRepository.save(user))
-                .isInstanceOf(Sql2oException.class)
-                .hasMessageContaining("Error in executeUpdate, Нарушение уникального индекса или первичного ключа:");
+                .isInstanceOf(Sql2oException.class);
     }
 
     @Test

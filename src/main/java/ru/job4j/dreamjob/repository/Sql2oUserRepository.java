@@ -32,9 +32,9 @@ public class Sql2oUserRepository implements UserRepository {
                 generatedId = query.executeUpdate();
                 user.setId(generatedId.getKey(Integer.class));
             } catch (IllegalArgumentException iae) {
-                iae.printStackTrace();
+                return Optional.empty();
             }
-            return generatedId != null ? Optional.of(user) : Optional.empty();
+            return Optional.of(user);
         }
     }
 
